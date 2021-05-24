@@ -1,23 +1,20 @@
 {
-	"LambdaXXXRole": {
+	"AppSyncItemsRole": {
 		"Type": "AWS::IAM::Role",
 		"Properties": {
-			"RoleName": "lambda_xxx_lambda",
+			"RoleName": "webpage_items_appsync",
 			"AssumeRolePolicyDocument": {
 				"Version": "2012-10-17",
 				"Statement": [
 					{
 						"Effect": "Allow",
 						"Principal": {
-							"Service": "lambda.amazonaws.com"
+							"Service": "appsync.amazonaws.com"
 						},
 						"Action": "sts:AssumeRole"
 					}
 				]
-			},
-			"ManagedPolicyArns": [
-				"arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-			]
+			}
 		}
 	}
 }

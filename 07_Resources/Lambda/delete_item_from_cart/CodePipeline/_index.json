@@ -1,14 +1,14 @@
 {
-	"CodePipelineXXX": {
+	"CodePipelineDeleteItemFromCart": {
 		"Type": "AWS::CodePipeline::Pipeline",
-		"DependsOn": "CodePipelineXXXRole",
+		"DependsOn": "CodePipelineDeleteItemFromCartRole",
 		"Properties": {
-			"Name": "lambda_xxx",
+			"Name": "lambda_delete_item_from_cart",
 			"ArtifactStore": {
 				"Location": { "Ref": "CodePipelineArtifactsParam" },
 				"Type": "S3"
 			},
-			"RoleArn": { "Fn::GetAtt": ["CodePipelineXXXRole", "Arn" ] },
+			"RoleArn": { "Fn::GetAtt": ["CodePipelineDeleteItemFromCartRole", "Arn" ] },
 			"Stages": [
 				{
 					"Name": "Get",
@@ -25,7 +25,7 @@
 							"Configuration": {
 								"Owner": "Retireryte",
 								"Repo": "Rr-Lambda-Generator-Avatar",
-								"Branch": { "Ref": "StageParam" },
+								"Branch": "production",
 								"PollForSourceChanges": false,
 								"OAuthToken": { "Ref": "GitHubTokenParam" }
 							},

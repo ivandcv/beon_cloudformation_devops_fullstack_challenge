@@ -1,0 +1,21 @@
+{
+	"CodePipelineGetCartWebhook": {
+		"Type": "AWS::CodePipeline::Webhook",
+		"Properties": {
+			"Authentication": "GITHUB_HMAC",
+			"AuthenticationConfiguration": {
+				"SecretToken": { "Ref": "GitHubTokenParam" }
+			},
+			"Filters": [
+				{
+					"JsonPath": "$.ref",
+					"MatchEquals": "refs/heads/production"
+				}
+			],
+			"TargetPipeline": { "Ref": "CodePipelineGetCart" },
+			"TargetAction": "Material",
+			"TargetPipelineVersion": { "Fn::GetAtt": [ "CodePipelineGetCart", "Version" ]},
+			"RegisterWithThirdParty": true
+		}
+	}
+}

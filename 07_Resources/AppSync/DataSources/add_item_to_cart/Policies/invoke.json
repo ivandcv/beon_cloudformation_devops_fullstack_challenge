@@ -1,0 +1,21 @@
+{
+	"AppSyncAddItemToCartPolicy": {
+		"Type": "AWS::IAM::Policy",
+		"Properties": {
+			"PolicyName": "default",
+			"Roles": [ { "Ref": "AppSyncAddItemToCartRole" } ],
+			"PolicyDocument": {
+				"Version": "2012-10-17",
+				"Statement": [
+					{
+						"Effect": "Allow",
+						"Action": [
+                            "lambda:InvokeFunction"
+						],
+						"Resource": { "Ref": "LambdaAddItemToCart" }
+					}
+				]
+			}
+		}
+	}
+}

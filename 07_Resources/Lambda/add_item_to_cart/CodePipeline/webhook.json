@@ -1,5 +1,5 @@
 {
-	"CodePipelineXXXWebhook": {
+	"CodePipelineAddItemToCartWebhook": {
 		"Type": "AWS::CodePipeline::Webhook",
 		"Properties": {
 			"Authentication": "GITHUB_HMAC",
@@ -9,12 +9,12 @@
 			"Filters": [
 				{
 					"JsonPath": "$.ref",
-					"MatchEquals": "refs/heads/{Branch}"
+					"MatchEquals": "refs/heads/production"
 				}
 			],
-			"TargetPipeline": { "Ref": "CodePipelineXXX" },
+			"TargetPipeline": { "Ref": "CodePipelineAddItemToCart" },
 			"TargetAction": "Material",
-			"TargetPipelineVersion": { "Fn::GetAtt": [ "CodePipelineXXX", "Version" ]},
+			"TargetPipelineVersion": { "Fn::GetAtt": [ "CodePipelineAddItemToCart", "Version" ]},
 			"RegisterWithThirdParty": true
 		}
 	}

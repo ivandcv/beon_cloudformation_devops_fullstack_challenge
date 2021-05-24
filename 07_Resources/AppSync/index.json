@@ -1,0 +1,14 @@
+{
+    "AppSyncWebpage": {
+        "Type": "AWS::AppSync::GraphQLApi",
+        "Properties": {
+            "AuthenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "Name": { "Fn::Sub": "${DomainNameParam}" },
+            "UserPoolConfig": {
+                "AwsRegion": { "Fn::Sub": "${AWS::Region}" },
+                "DefaultAction": "ALLOW",
+                "UserPoolId": { "Ref": "CognitoUserPool" }
+            }
+        }
+    }
+}

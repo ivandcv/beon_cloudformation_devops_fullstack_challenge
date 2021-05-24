@@ -1,8 +1,8 @@
 {
-	"CodePipelineXXXRole": {
+	"CodePipelineDeleteItemFromCartRole": {
 		"Type": "AWS::IAM::Role",
 		"Properties": {
-			"RoleName": "lambda_xxx_codepipeline",
+			"RoleName": "lambda_delete_item_from_cart_codepipeline",
 			"AssumeRolePolicyDocument": {
 				"Version": "2012-10-17",
 				"Statement": [

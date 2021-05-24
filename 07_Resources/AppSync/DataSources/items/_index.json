@@ -1,0 +1,16 @@
+{
+    "AppSyncItems": {
+        "Type" : "AWS::AppSync::DataSource",
+        "Properties" : {
+            "ApiId" : { "Fn::GetAtt" : [ "AppSyncWebpage", "ApiId" ] },
+            "Description" : "DDB data source for items table",
+            "DynamoDBConfig" : {
+                "AwsRegion" : { "Fn::Sub": "${AWS::Region}" },
+                "TableName" : "items"
+            },
+            "Name" : "items",
+            "ServiceRoleArn" : { "Fn::GetAtt": ["AppSyncItemsRole", "Arn"] },
+            "Type" : "AMAZON_DYNAMODB"
+          }
+      }
+}

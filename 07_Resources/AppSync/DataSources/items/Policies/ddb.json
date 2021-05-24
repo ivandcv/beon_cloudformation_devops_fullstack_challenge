@@ -1,0 +1,22 @@
+{
+	"AppSyncItemsPolicy": {
+		"Type": "AWS::IAM::Policy",
+		"Properties": {
+			"PolicyName": "default",
+			"Roles": [ { "Ref": "AppSyncItemsRole" } ],
+			"PolicyDocument": {
+				"Version": "2012-10-17",
+				"Statement": [
+					{
+						"Effect": "Allow",
+						"Action": [
+                            "dynamodb:GetItem",
+                            "dynamodb:Query"
+						],
+						"Resource": { "Fn::GetAtt": ["DDBItems", "Arn"] }
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"DomainNameParam": {
+		"Description": "The DNS domain of the website.",
+		"Type": "String",
+		"Default": "cheezies"
+	}
+}

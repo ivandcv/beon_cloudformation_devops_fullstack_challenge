@@ -1,0 +1,21 @@
+{
+	"CodePipelineDeleteItemFromCartWebhook": {
+		"Type": "AWS::CodePipeline::Webhook",
+		"Properties": {
+			"Authentication": "GITHUB_HMAC",
+			"AuthenticationConfiguration": {
+				"SecretToken": { "Ref": "GitHubTokenParam" }
+			},
+			"Filters": [
+				{
+					"JsonPath": "$.ref",
+					"MatchEquals": "refs/heads/production"
+				}
+			],
+			"TargetPipeline": { "Ref": "CodePipelineDeleteItemFromCart" },
+			"TargetAction": "Material",
+			"TargetPipelineVersion": { "Fn::GetAtt": [ "CodePipelineDeleteItemFromCart", "Version" ]},
+			"RegisterWithThirdParty": true
+		}
+	}
+}

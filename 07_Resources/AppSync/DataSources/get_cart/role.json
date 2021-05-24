@@ -1,0 +1,20 @@
+{
+	"AppSyncGetCartRole": {
+		"Type": "AWS::IAM::Role",
+		"Properties": {
+			"RoleName": "webpage_get_cart_appsync",
+			"AssumeRolePolicyDocument": {
+				"Version": "2012-10-17",
+				"Statement": [
+					{
+						"Effect": "Allow",
+						"Principal": {
+							"Service": "appsync.amazonaws.com"
+						},
+						"Action": "sts:AssumeRole"
+					}
+				]
+			}
+		}
+	}
+}

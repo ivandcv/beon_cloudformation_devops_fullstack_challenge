@@ -3,7 +3,7 @@
 		"Type": "AWS::CodeBuild::Project",
 		"DependsOn": "CodeBuildRole",
 		"Properties": {
-			"Name": "xxx_reusable",
+			"Name": "webpage_reusable",
 			"ServiceRole": { "Fn::GetAtt": ["CodeBuildRole", "Arn"] },
 			"TimeoutInMinutes": 60,
 			"Source": {

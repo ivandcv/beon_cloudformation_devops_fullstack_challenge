@@ -1,0 +1,23 @@
+{
+    "S3Webpage": {
+        "Type": "AWS::S3::Bucket",
+		"Properties": {
+			"AccessControl": "PublicRead",
+			"BucketName": { "Ref": "DomainNameParam" },
+			"CorsConfiguration": {
+				"CorsRules": [
+					{
+						"AllowedHeaders": ["Authorization"],
+						"AllowedMethods": ["GET"],
+						"AllowedOrigins": ["*"],
+						"MaxAge": 3000
+					}
+				]
+			},
+			"WebsiteConfiguration": {
+				"ErrorDocument": "error.html",
+				"IndexDocument": "index.html"
+			}
+		}
+    }
+}

@@ -1,19 +1,19 @@
 {
-	"LambdaXXX": {
+	"LambdaGetCart": {
 		"Type": "AWS::Lambda::Function",
 		"Properties": {
-			"FunctionName": "xxx",
+			"FunctionName": "get_cart",
 			"Code": {
 				"ZipFile": "exports.handler = (event) => { return new Promise(function(resolve, reject) { resolve('OK'); }) };"
 			},
 			"Handler": "index.handler",
 			"MemorySize": 128,
-			"Role": { "Fn::GetAtt": ["LambdaXXXRole", "Arn"] },
+			"Role": { "Fn::GetAtt": ["LambdaGetCartRole", "Arn"] },
 			"Runtime": "nodejs12.x",
 			"Timeout": 60,
 			"Environment": {
 				"Variables": {
-					"STAGE": { "Ref": "StageParam" }
+					"STAGE": "production"
 				}
 			}
 		}

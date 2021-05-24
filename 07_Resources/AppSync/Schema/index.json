@@ -1,0 +1,9 @@
+{
+    "AppSyncSchemaWebpage": {
+        "Type": "AWS::AppSync::GraphQLSchema",
+        "Properties": {
+            "ApiId": { "Fn::GetAtt" : [ "AppSyncWebpage", "ApiId" ] },
+            "Definition": "type Query {}\r\n\r\ntype Mutation {}\r\n\r\nschema {\r\n\tquery: Query\r\n\tmutation: Mutation\r\n}"
+        }
+    }
+}

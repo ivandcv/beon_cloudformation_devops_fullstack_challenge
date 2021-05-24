@@ -7,15 +7,22 @@
                     },
                     "Parameters": [
                         "CodePipelineArtifactsParam",
-                        "GitHubTokenParam",
-                        "StageParam"
+                        "GitHubTokenParam"
+                    ]
+                },
+                {
+                    "Label": {
+                        "default": "Webpage"
+                    },
+                    "Parameters": [
+                        "DomainNameParam"
                     ]
                 }
             ],
             "ParameterLabels": {
                 "CodePipelineArtifactsParam": { "default": "CodePipeline Artifacts Bucket" },
                 "GitHubTokenParam": { "default": "GitHub Token" },
-                "StageParam": { "default": "Stage" }
+                "DomainNameParam": { "default": "Webpage Domain Name" }
             }
         }
 }

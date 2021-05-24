@@ -1,0 +1,42 @@
+{
+	"CloudFrontWebpage": {
+		"Type": "AWS::CloudFront::Distribution",
+		"Properties": {
+			"DistributionConfig": {
+				"Comment": { "Ref": "DomainNameParam" },
+				"DefaultCacheBehavior": {
+					"ForwardedValues": {
+						"Cookies": {
+							"Forward": "none"
+						},
+						"QueryString": false
+					},
+					"MinTTL": 0,
+					"TargetOriginId": { "Fn::Sub": "${S3Webpage}.s3-website-${AWS::Region}.amazonaws.com" },
+					"ViewerProtocolPolicy": "redirect-to-https",
+					"AllowedMethods": ["GET", "HEAD"],
+					"CachedMethods": ["GET", "HEAD"],
+					"Compress": true,
+					"DefaultTTL": 86400,
+					"MaxTTL": 31536000,
+					"SmoothStreaming": false
+				},
+				"Enabled": true,
+				"Origins": [{
+					"DomainName": { "Fn::Sub": "${S3Webpage}.s3-website-${AWS::Region}.amazonaws.com" },
+					"Id": { "Fn::Sub": "${S3Webpage}.s3-website-${AWS::Region}.amazonaws.com" },
+					"CustomOriginConfig": {
+						"HTTPPort": 80,
+						"HTTPSPort": 443,
+						"OriginProtocolPolicy": "http-only",
+						"OriginSSLProtocols": ["TLSv1.2"]
+					}
+				}],
+				"DefaultRootObject": "index.html",
+				"HttpVersion": "http2",
+				"IPV6Enabled": true,
+				"PriceClass": "PriceClass_200"
+			}
+		}
+	}
+}

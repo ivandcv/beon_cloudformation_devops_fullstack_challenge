@@ -1,0 +1,15 @@
+{
+    "AppSyncAddItemToCart": {
+        "Type" : "AWS::AppSync::DataSource",
+        "Properties" : {
+            "ApiId" : { "Fn::GetAtt" : [ "AppSyncWebpage", "ApiId" ] },
+            "Description" : "Lambda data source for the add item to cart",
+            "LambdaConfig" : {
+                "LambdaFunctionArn" : { "Ref": "LambdaAddItemToCart" }
+            },
+            "Name" : "add_item_to_cart",
+            "ServiceRoleArn" : { "Fn::GetAtt": ["AppSyncAddItemToCartRole", "Arn"] },
+            "Type" : "AWS_LAMBDA"
+          }
+      }
+}

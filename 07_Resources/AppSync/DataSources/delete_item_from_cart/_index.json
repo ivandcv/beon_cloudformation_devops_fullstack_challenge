@@ -1,0 +1,15 @@
+{
+    "AppSyncDeleteItemFromCart": {
+        "Type" : "AWS::AppSync::DataSource",
+        "Properties" : {
+            "ApiId" : { "Fn::GetAtt" : [ "AppSyncWebpage", "ApiId" ] },
+            "Description" : "Lambda data source for the delete item from cart",
+            "LambdaConfig" : {
+                "LambdaFunctionArn" : { "Ref": "LambdaDeleteItemFromCart" }
+            },
+            "Name" : "delete_item_from_cart",
+            "ServiceRoleArn" : { "Fn::GetAtt": ["AppSyncDeleteItemFromCartRole", "Arn"] },
+            "Type" : "AWS_LAMBDA"
+          }
+      }
+}

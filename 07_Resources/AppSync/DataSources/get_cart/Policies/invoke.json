@@ -1,0 +1,21 @@
+{
+	"AppSyncGetCartPolicy": {
+		"Type": "AWS::IAM::Policy",
+		"Properties": {
+			"PolicyName": "default",
+			"Roles": [ { "Ref": "AppSyncGetCartRole" } ],
+			"PolicyDocument": {
+				"Version": "2012-10-17",
+				"Statement": [
+					{
+						"Effect": "Allow",
+						"Action": [
+                            "lambda:InvokeFunction"
+						],
+						"Resource": { "Ref": "LambdaGetCart" }
+					}
+				]
+			}
+		}
+	}
+}
